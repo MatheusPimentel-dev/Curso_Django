@@ -3,47 +3,39 @@
         <img src="https://via.placeholder.com/1280x720.png/09f/fff" alt="Temporario" />
     </div>
     <div class="recipe-title-container">
-        <h2 class="recipe-title">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
+        <h2 class="recipe-title">{{ recipe.title }}</h2>
     </div>
 
     <div class="recipe-author">
         <span class="recipe-author-item">
-            <i class="fas fa-user"> Matheus Pimentel</i>
+            <i class="fas fa-user"> {{recipe.author.first_name }} {{recipe.author.last_name }}</i>
         </span>
         <span class="recipe-author-item">
-            <i class="fas fa-calendar-alt"> 31/12/2021 às 11:21</i>
+            <i class="fas fa-calendar-alt"> {{ recipe.created_at|date:"d/m/Y"}}</i>
         </span>
         <span class="recipe-author-item">
             <a href="/recipes/category/cafe-da-manha/">
-                <i class="fas fa-layer-group"> Café da manhã</i>
+                <i class="fas fa-layer-group"> {{recipe.category.name}}</i>
             </a>
         </span>
     </div>
 
     <div class="recipe-content">
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla ipsum aspernatur fugit rerum,
-            harum consectetur amet fuga quos ab pariatur! Sed suscipit facere tenetur accusantium eveniet
-            voluptates soluta, eligendi modi aspernatur possimus itaque similique fugiat repellat, aut
-            autem? Voluptatem odit autem eligendi harum iste alias aspernatur vero assumenda quis nisi!
-            Voluptas vero exercitationem molestias eos saepe esse tenetur reprehenderit voluptates? Culpa
-            quos eligendi quibusdam est excepturi. Unde molestiae nemo explicabo ad repellendus commodi
-            veritatis aut, earum nostrum eaque magnam numquam officiis cum cupiditate voluptatibus quia
-            voluptatem, adipisci animi itaque doloribus, quasi nihil. Non ex eaque rerum iure exercitationem
-            minus reprehenderit.</p>
+        <p>{{ recipe.description}}</p>
     </div>
 
     <div class="recipe-meta-container">
         <div class="recipe-meta recipe-preparation">
             <h3 class="recipe-meta-title"><i class="fas fa-stopwatch"></i> Preparo</h3>
             <div class="recipe-meta-text">
-                0 Minutos
+                {{ recipe.preparation_time}} {{ recipe.preparation_time_unit}}
             </div>
         </div>
 
         <div class="recipe-meta recipe-servings">
             <h3 class="recipe-meta-title"><i class="fas fa-pizza-slice"></i> Porções</h3>
             <div class="recipe-meta-text">
-                0 Porções
+                {{recipe.servings}} {{recipe.servings_unit}}
             </div>
         </div>
     </div>
